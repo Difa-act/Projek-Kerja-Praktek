@@ -1,0 +1,324 @@
+:root {
+    --primary-color: #0d6efd;
+    --success-color: #198754;
+    --warning-color: #ffc107;
+    --info-color: #0dcaf0;
+}
+
+/* =========================
+   GLOBAL
+========================= */
+
+body {
+    background-color: #f8f9fc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden;
+}
+
+#mainApp {
+    animation: fadeIn .3s ease;
+    transition: all .3s ease;
+}
+
+#contentArea {
+    animation: fadeIn .25s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    backdrop-filter: blur(10px);
+    background: linear-gradient(90deg, #0d6efd, #3b82f6) !important;
+}
+
+.navbar-brand {
+    font-size: 1.5rem !important;
+    font-weight: 700;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    transition: all .2s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    background: #fff !important;
+    border-bottom: 1px solid #eef2f7;
+    font-weight: 600;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+.btn {
+    border-radius: 12px;
+    font-weight: 500;
+    transition: .2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-lg {
+    padding: 20px;
+    font-size: 1.1rem;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+.table-responsive {
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table thead {
+    background: #f8fafc;
+}
+
+.table th {
+    font-weight: 600;
+    border-bottom: none;
+}
+
+/* =========================
+   FILTER SECTION
+========================= */
+
+.filter-section {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: white;
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(37,99,235,0.18);
+}
+
+/* =========================
+   BREADCRUMB
+========================= */
+
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 1.5rem;
+}
+
+.breadcrumb-item a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: #6c757d;
+}
+
+/* =========================
+   CHART
+========================= */
+
+canvas {
+    max-height: 320px;
+}
+
+#chartContainer {
+    height: 400px;
+    background: white;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   ALERT ANIMATION
+========================= */
+
+.anomaly-alert {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.03);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* =========================
+   SIDEBAR FIX SUPPORT
+========================= */
+
+#contentWrap {
+    width: 100%;
+    transition: all .3s ease;
+}
+
+#sidebar.open ~ #contentWrap #mainApp {
+    margin-left: 260px;
+    width: calc(100% - 260px);
+}
+
+#sidebar.closed ~ #contentWrap #mainApp {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 991px) {
+
+    #sidebar.open ~ #contentWrap #mainApp,
+    #sidebar.closed ~ #contentWrap #mainApp {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .navbar-brand {
+        font-size: 1.1rem !important;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+}
+
+.student-task-page {
+    padding: 10px 0;
+}
+
+.student-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.student-id-card {
+    background: #fff;
+    border-radius: 16px;
+    padding: 14px 22px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.08);
+    min-width: 160px;
+}
+
+.student-task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.student-task-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 22px;
+    display: grid;
+    grid-template-columns: 70px 1fr 180px 170px;
+    align-items: center;
+    gap: 18px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.07);
+}
+
+.task-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 16px;
+    background: #eef4ff;
+    color: #0d6efd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.task-info h5 {
+    color: #0d6efd;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.task-title {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.task-teacher {
+    color: #6c757d;
+    margin-bottom: 0;
+}
+
+.task-deadline span {
+    display: block;
+    color: #dc3545;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.task-deadline strong {
+    display: block;
+    margin-top: 4px;
+}
+
+@media(max-width: 768px) {
+    .student-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .student-task-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+.task-publish {
+    color: #6c757d;
+    margin-bottom: 2px;
+    font-size: 14px;
+}
